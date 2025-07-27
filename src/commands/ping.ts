@@ -1,9 +1,6 @@
-import {
-  ApplicationCommandRegistry,
-  Awaitable,
-  Command,
-} from "@sapphire/framework";
-import { ChatInputCommandInteraction } from "discord.js";
+import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework";
+import { Command } from "@sapphire/framework";
+import type { ChatInputCommandInteraction } from "discord.js";
 
 class PingCommand extends Command {
   public constructor(context: Command.LoaderContext, options: Command.Options) {
@@ -18,9 +15,7 @@ class PingCommand extends Command {
     });
   }
 
-  public override async chatInputRun(
-    interaction: ChatInputCommandInteraction,
-  ): Promise<void> {
+  public override async chatInputRun(interaction: ChatInputCommandInteraction): Promise<void> {
     await interaction.reply("Pong!");
   }
 }
