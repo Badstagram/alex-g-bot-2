@@ -1,9 +1,6 @@
-import {
-  ApplicationCommandRegistry,
-  Awaitable,
-  Command,
-} from "@sapphire/framework";
-import { ChatInputCommandInteraction } from "discord.js";
+import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework";
+import { Command } from "@sapphire/framework";
+import type { ChatInputCommandInteraction } from "discord.js";
 
 class GitHubLinkCommand extends Command {
   public constructor(context: Command.LoaderContext, options: Command.Options) {
@@ -16,15 +13,11 @@ class GitHubLinkCommand extends Command {
     registry.registerChatInputCommand((builder) => {
       return builder
         .setName("github")
-        .setDescription(
-          "Respond with GitHub repository link to bot source code",
-        );
+        .setDescription("Respond with GitHub repository link to bot source code");
     });
   }
 
-  public override async chatInputRun(
-    interaction: ChatInputCommandInteraction,
-  ): Promise<void> {
+  public override async chatInputRun(interaction: ChatInputCommandInteraction): Promise<void> {
     await interaction.reply(
       "Here's the GitHub repository link to my source code: https://github.com/AlexMan123456/alex-g-bot-2",
     );
