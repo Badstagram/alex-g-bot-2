@@ -25,13 +25,13 @@
     "discord.js": "^14.21.0"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^1.2.8",
+    "@alextheman/eslint-plugin": "^1.2.10",
     "dotenv": "^17.2.1",
     "eslint": "^9.32.0",
     "husky": "^9.1.7",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   }
 }
