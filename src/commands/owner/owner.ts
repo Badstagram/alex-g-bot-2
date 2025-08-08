@@ -1,6 +1,5 @@
 import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework";
 import { Subcommand } from "@sapphire/plugin-subcommands";
-import type { ChatInputCommandInteraction } from "discord.js";
 import evalCommand from "src/commands/owner/_eval";
 import ownerTestCommand from "src/commands/owner/_test";
 
@@ -12,12 +11,12 @@ class OwnerCommand extends Subcommand {
       subcommands: [
         {
           name: "test",
-          chatInputRun: "chatInputTest",
+          chatInputRun: ownerTestCommand,
           default: true,
         },
         {
           name: "eval",
-          chatInputRun: "chatInputEval",
+          chatInputRun: evalCommand,
         },
       ],
     });
@@ -37,14 +36,6 @@ class OwnerCommand extends Subcommand {
           return command.setName("eval").setDescription("Evaluate some JavaScript code");
         });
     });
-  }
-
-  public async chatInputTest(interaction: ChatInputCommandInteraction): Promise<void> {
-    await ownerTestCommand(interaction);
-  }
-
-  public async chatInputEval(interaction: ChatInputCommandInteraction): Promise<void> {
-    await evalCommand(interaction);
   }
 }
 
