@@ -1,0 +1,7 @@
+services:
+  bot:
+    environment:
+      - BOT_TOKEN=
+      - OWNER_ID=
+    image: alex-g-bot-2
+    
