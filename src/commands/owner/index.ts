@@ -1,6 +1,7 @@
 import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework";
 import { Subcommand } from "@sapphire/plugin-subcommands";
 import type { ChatInputCommandInteraction } from "discord.js";
+import ownerTestCommand from "src/commands/owner/_test";
 
 class OwnerCommand extends Subcommand {
   constructor(context: Subcommand.LoaderContext, options: Subcommand.Options) {
@@ -31,7 +32,7 @@ class OwnerCommand extends Subcommand {
   }
 
   public async chatInputTest(interaction: ChatInputCommandInteraction): Promise<void> {
-    await interaction.reply("Alex is the best user");
+    await ownerTestCommand(interaction);
   }
 }
 
