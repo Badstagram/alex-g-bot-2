@@ -1,5 +1,6 @@
 import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework";
 import { Subcommand } from "@sapphire/plugin-subcommands";
+import addUserCommand from "src/commands/database/_add-user";
 import query from "src/commands/database/_query";
 
 class DatabaseCommand extends Subcommand {
@@ -11,6 +12,10 @@ class DatabaseCommand extends Subcommand {
         {
           name: "query",
           chatInputRun: query,
+        },
+        {
+          name: "add-user",
+          chatInputRun: addUserCommand,
         },
       ],
     });
@@ -32,6 +37,14 @@ class DatabaseCommand extends Subcommand {
                 .setName("query")
                 .setDescription("The SQL query to run")
                 .setRequired(true);
+            });
+        })
+        .addSubcommand((command) => {
+          return command
+            .setName("add-user")
+            .setDescription("Add a user to the bot's database")
+            .addUserOption((option) => {
+              return option.setName("user").setDescription("The user to add").setRequired(true);
             });
         });
     });
