@@ -1,4 +1,3 @@
-import { formatDateAndTime } from "@alextheman/utility";
 import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework";
 import { Command } from "@sapphire/framework";
 import { stripIndent } from "common-tags";
@@ -21,7 +20,7 @@ class VersionCommand extends Command {
   public override async chatInputRun(interaction: ChatInputCommandInteraction): Promise<void> {
     await interaction.reply(stripIndent`
       Current version: ${version}
-      Last updated: ${formatDateAndTime(new Date(process.env.LAST_UPDATED ?? new Date()))}
+      Last updated: ${process.env.LAST_UPDATED ? `<t:${new Date(process.env.LAST_UPDATED).getTime() / 1000}:f>` : "Unknown"}
       `);
   }
 }
