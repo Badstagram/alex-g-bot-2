@@ -1,16 +1,16 @@
 import Type from "@sapphire/type";
 import { ContainerBuilder, SeparatorSpacingSize } from "discord.js";
 
-export interface Metadata {
+export interface EvalMetadata {
   lineSpacing: number;
   success: boolean;
   showEnvironmentVariables: boolean;
 }
 
-function generateEvalOutputContainer(
+function formatEvalResponse(
   code: string,
   output: any,
-  { lineSpacing, success, showEnvironmentVariables }: Metadata,
+  { lineSpacing, success, showEnvironmentVariables }: EvalMetadata,
 ) {
   return new ContainerBuilder()
     .addTextDisplayComponents((builder) => {
@@ -45,4 +45,4 @@ function generateEvalOutputContainer(
     .setAccentColor(success ? [0, 255, 0] : [255, 0, 0]);
 }
 
-export default generateEvalOutputContainer;
+export default formatEvalResponse;
