@@ -2,7 +2,7 @@ import { InteractionHandler, InteractionHandlerTypes } from "@sapphire/framework
 import type { ModalSubmitInteraction } from "discord.js";
 import { MessageFlags } from "discord.js";
 import evaluateCode from "src/interaction-handlers/evalModalHandler/_evaluate-code";
-import generateEvalOutputContainer from "src/interaction-handlers/evalModalHandler/_generate-eval-output-container";
+import formatEvalResponse from "src/interaction-handlers/evalModalHandler/_format-eval-response";
 
 class EvalModalHandler extends InteractionHandler {
   public constructor(
@@ -33,7 +33,7 @@ class EvalModalHandler extends InteractionHandler {
     if (code.includes("process.env") && !showEnvironmentVariables) {
       const attemptedToAccess = code.split(".")[2];
 
-      const container = generateEvalOutputContainer(
+      const container = formatEvalResponse(
         code,
         attemptedToAccess
           ? "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
@@ -50,7 +50,7 @@ class EvalModalHandler extends InteractionHandler {
 
     const { evaluatedCode, success } = evaluateCode(code);
 
-    const container = generateEvalOutputContainer(code, evaluatedCode, {
+    const container = formatEvalResponse(code, evaluatedCode, {
       lineSpacing: parsedLineSpacing,
       success,
       showEnvironmentVariables: !!showEnvironmentVariables,
