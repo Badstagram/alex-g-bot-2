@@ -31,12 +31,18 @@ class EvalModalHandler extends InteractionHandler {
     );
 
     if (code.includes("process.env") && !showEnvironmentVariables) {
+      const attemptedToAccess = code.split(".")[2];
+
       const container = generateEvalOutputContainer(
         code,
-        { BOT_TOKEN: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
-        parsedLineSpacing,
-        false,
-        !!showEnvironmentVariables,
+        attemptedToAccess
+          ? "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          : { BOT_TOKEN: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+        {
+          lineSpacing: parsedLineSpacing,
+          success: false,
+          showEnvironmentVariables: !!showEnvironmentVariables,
+        },
       );
       await interaction.reply({ components: [container], flags: MessageFlags.IsComponentsV2 });
       return;
@@ -44,13 +50,11 @@ class EvalModalHandler extends InteractionHandler {
 
     const { evaluatedCode, success } = evaluateCode(code);
 
-    const container = generateEvalOutputContainer(
-      code,
-      evaluatedCode,
-      parsedLineSpacing,
+    const container = generateEvalOutputContainer(code, evaluatedCode, {
+      lineSpacing: parsedLineSpacing,
       success,
-      !!showEnvironmentVariables,
-    );
+      showEnvironmentVariables: !!showEnvironmentVariables,
+    });
 
     await interaction.reply({ components: [container], flags: MessageFlags.IsComponentsV2 });
   }

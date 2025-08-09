@@ -1,12 +1,16 @@
 import Type from "@sapphire/type";
 import { ContainerBuilder, SeparatorSpacingSize } from "discord.js";
 
+export interface Metadata {
+  lineSpacing: number;
+  success: boolean;
+  showEnvironmentVariables: boolean;
+}
+
 function generateEvalOutputContainer(
   code: string,
   output: any,
-  lineSpacing: number,
-  success: boolean,
-  showEnvironmentVariables: boolean,
+  { lineSpacing, success, showEnvironmentVariables }: Metadata,
 ) {
   return new ContainerBuilder()
     .addTextDisplayComponents((builder) => {
@@ -35,7 +39,7 @@ function generateEvalOutputContainer(
     })
     .addTextDisplayComponents((builder) => {
       return builder.setContent(
-        `-# Output type: ${output?.BOT_TOKEN === "https://www.youtube.com/watch?v=dQw4w9WgXcQ" ? "Rickroll" : new Type(output)} | Line spacing: ${lineSpacing} | Show environment variables: ${showEnvironmentVariables}`,
+        `-# Output type: ${code.includes("process.env") && !showEnvironmentVariables ? "Rickroll" : new Type(output)} | Line spacing: ${lineSpacing} | Show environment variables: ${showEnvironmentVariables}`,
       );
     })
     .setAccentColor(success ? [0, 255, 0] : [255, 0, 0]);
