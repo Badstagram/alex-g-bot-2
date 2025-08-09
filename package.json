@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx tsx src/index.ts",
     "dev": "nodemon src/index.ts",
-    "format": "prettier --write --parser typescript 'src/**/*.{ts,tsx}' && ESLINT_MODE=fix eslint --fix 'src/**/*.{ts,tsx}'",
-    "lint": "ESLINT_MODE=lint eslint 'src/**/*.{ts,tsx}' && prettier --check --parser typescript 'src/**/*.{ts,tsx}'",
+    "format": "prettier --write --parser typescript 'src/**/*.ts' 'prisma/**/*.ts' && ESLINT_MODE=fix eslint --fix 'src/**/*.ts' 'prisma/**/*.ts'",
+    "lint": "ESLINT_MODE=lint eslint 'src/**/*.ts' 'prisma/**/*.ts' && prettier --check --parser typescript 'src/**/*.ts' 'prisma/**/*.ts'",
     "prepare": "husky",
     "update-dependencies": "npx npm-check-updates -u && npm install",
     "update-bot": "./update.sh",
@@ -22,6 +22,7 @@
   "type": "module",
   "dependencies": {
     "@alextheman/utility": "^1.7.3",
+    "@prisma/client": "^6.13.0",
     "@sapphire/framework": "^5.3.6",
     "@sapphire/plugin-subcommands": "^7.0.1",
     "@sapphire/type": "^2.6.0",
@@ -36,6 +37,7 @@
     "husky": "^9.1.7",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
+    "prisma": "^6.13.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   }
