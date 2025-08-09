@@ -1,6 +1,7 @@
 version=$(jq -r '.version' < package.json)
 
 git pull
+echo "LAST_UPDATED=${date -Iseconds}" >> .env
 docker build -t alex-g-bot-2:$version .
 
 docker stop alex-g-bot-2

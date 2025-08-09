@@ -1,5 +1,7 @@
+import { formatDateAndTime } from "@alextheman/utility";
 import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework";
 import { Command } from "@sapphire/framework";
+import { stripIndent } from "common-tags";
 import type { ChatInputCommandInteraction } from "discord.js";
 import { version } from "package.json";
 
@@ -17,7 +19,10 @@ class VersionCommand extends Command {
   }
 
   public override async chatInputRun(interaction: ChatInputCommandInteraction): Promise<void> {
-    await interaction.reply(`Current version: ${version}`);
+    await interaction.reply(stripIndent`
+      Current version: ${version}
+      Last updated: ${formatDateAndTime(new Date(process.env.LAST_UPDATED ?? new Date()))}
+      `);
   }
 }
 
