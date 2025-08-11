@@ -24,4 +24,4 @@ if [ "$update_db" = true ]; then
     npx prisma migrate deploy
 fi
 
-docker run -d --name alex-g-bot-2 alex-g-bot-2:$version
+docker run -d --network postgres_database --name alex-g-bot-2 alex-g-bot-2:$version
