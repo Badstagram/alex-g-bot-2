@@ -14,6 +14,7 @@ COPY src/ src/
 COPY prisma/ prisma/
 
 # Generate Prisma Client
+RUN ["npx", "prisma", "migrate", "deploy"]
 RUN ["npx", "prisma", "generate"]
 
 ENTRYPOINT ["npm", "run", "start"]
