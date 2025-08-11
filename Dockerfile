@@ -11,5 +11,9 @@ RUN ["npm", "install", "-g", "tsx"]
 COPY tsconfig.json .
 COPY .env .
 COPY src/ src/
+COPY prisma/ prisma/
+
+# Generate Prisma Client
+RUN ["npx", "prisma", "generate"]
 
 ENTRYPOINT ["npm", "run", "start"]
