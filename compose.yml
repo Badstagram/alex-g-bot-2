@@ -3,5 +3,32 @@ services:
     environment:
       - BOT_TOKEN=
       - OWNER_ID=
+      - DATABASE_URL=
+    networks:
+      - bot
+    depends_on:
+      - postgres
     image: alex-g-bot-2
-    
+
+  postgres:
+    image: postgres:17.5
+    ports:
+      - 5432:5432
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=S3cret # TODO: Change this to something a bit more secure ;)
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 5s
+      timeout: 2s
+      retries: 20
+    networks:
+      - bot
+
+networks:
+  bot:
+
+volumes:
+  pg_data:
+    external: true
