@@ -15,7 +15,7 @@ update_db=false
 
 git pull
 npx alex-c-line edit-env LAST_UPDATED $(date -Iseconds)
-docker build --network postgres_database -t alex-g-bot-2:$version .
+DOCKER_BUILDKIT=0 docker build --network postgres_database -t alex-g-bot-2:$version .
 
 docker stop alex-g-bot-2
 docker rm alex-g-bot-2
