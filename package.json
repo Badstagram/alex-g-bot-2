@@ -5,7 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsx src/index.ts",
+    "build": "tsup",
+    "start": "npm run build && node dist/index.cjs",
     "dev": "nodemon src/index.ts",
     "format": "prettier --write --parser typescript 'src/**/*.ts' 'prisma/**/*.ts' && ESLINT_MODE=fix eslint --fix 'src/**/*.ts' 'prisma/**/*.ts'",
     "lint": "ESLINT_MODE=lint eslint 'src/**/*.ts' 'prisma/**/*.ts' && prettier --check --parser typescript 'src/**/*.ts' 'prisma/**/*.ts'",
@@ -40,6 +41,7 @@
     "prettier": "^3.6.2",
     "prisma": "^6.13.0",
     "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
     "typescript": "^5.9.2"
   }
 }
