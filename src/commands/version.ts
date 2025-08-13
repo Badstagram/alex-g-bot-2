@@ -2,6 +2,7 @@ import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework"
 import { Command } from "@sapphire/framework";
 import { stripIndent } from "common-tags";
 import type { ChatInputCommandInteraction } from "discord.js";
+
 import { version } from "package.json";
 
 class VersionCommand extends Command {

@@ -1,4 +1,5 @@
 import type { ChatInputCommandInteraction } from "discord.js";
+
 import addUserToDatabase from "src/database-helpers/add-user-to-database";
 
 async function addUserCommand(interaction: ChatInputCommandInteraction) {

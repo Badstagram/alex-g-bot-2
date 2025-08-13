@@ -1,4 +1,5 @@
 import type { User } from "discord.js";
+
 import database from "prisma/connection";
 
 async function addUserToDatabase(user: User) {
