@@ -1,5 +1,6 @@
 import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework";
 import { Subcommand } from "@sapphire/plugin-subcommands";
+
 import addUserCommand from "src/commands/database/_add-user";
 import query from "src/commands/database/_query";
 

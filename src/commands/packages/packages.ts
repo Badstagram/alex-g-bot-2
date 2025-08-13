@@ -1,5 +1,6 @@
 import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework";
 import { Subcommand } from "@sapphire/plugin-subcommands";
+
 import gitHubLinks from "src/commands/packages/_github-links";
 
 class PackagesCommand extends Subcommand {
