@@ -1,10 +1,11 @@
 import type { Precondition } from "@sapphire/framework";
-import { AllFlowsPrecondition } from "@sapphire/framework";
 import type {
   ChatInputCommandInteraction,
   ContextMenuCommandInteraction,
   Message,
 } from "discord.js";
+
+import { AllFlowsPrecondition } from "@sapphire/framework";
 
 class OwnerOnly extends AllFlowsPrecondition {
   public doOwnerCheck(userId: string) {

@@ -1,4 +1,5 @@
 import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework";
+
 import { Subcommand } from "@sapphire/plugin-subcommands";
 
 import evalCommand from "src/commands/owner/_eval";

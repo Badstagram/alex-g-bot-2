@@ -1,4 +1,5 @@
 import type { ChatInputCommandInteraction } from "discord.js";
+
 import { MessageFlags } from "discord.js";
 
 import executeQuery from "src/commands/database/helpers/_execute-query";

@@ -1,4 +1,5 @@
 import type { ChatInputCommandInteraction } from "discord.js";
+
 import { EmbedBuilder } from "discord.js";
 
 async function gitHubLinks(interaction: ChatInputCommandInteraction) {
