@@ -1,6 +1,7 @@
 import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework";
-import { Command } from "@sapphire/framework";
 import type { ChatInputCommandInteraction } from "discord.js";
+
+import { Command } from "@sapphire/framework";
 
 class PingCommand extends Command {
   public constructor(context: Command.LoaderContext, options: Command.Options) {

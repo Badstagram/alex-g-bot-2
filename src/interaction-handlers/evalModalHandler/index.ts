@@ -1,5 +1,6 @@
-import { InteractionHandler, InteractionHandlerTypes } from "@sapphire/framework";
 import type { ModalSubmitInteraction } from "discord.js";
+
+import { InteractionHandler, InteractionHandlerTypes } from "@sapphire/framework";
 import { MessageFlags } from "discord.js";
 
 import evaluateCode from "src/interaction-handlers/evalModalHandler/_evaluate-code";

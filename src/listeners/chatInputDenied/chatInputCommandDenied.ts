@@ -1,4 +1,5 @@
 import type { ChatInputCommandDeniedPayload, UserError } from "@sapphire/framework";
+
 import { Listener } from "@sapphire/framework";
 
 import denyChatInputCommand from "src/listeners/chatInputDenied/_deny-chat-input-command";
