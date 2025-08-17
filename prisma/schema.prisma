@@ -17,3 +17,11 @@ model User {
 
   @@map("users")
 }
+
+model Guild {
+  guildId           String  @id @map("guild_id")
+  name              String
+  errorLogChannelId String? @map("error_log_channel_id")
+
+  @@map("guilds")
+}
