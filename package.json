@@ -22,7 +22,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@alextheman/utility": "^1.11.1",
+    "@alextheman/utility": "^1.11.3",
     "@prisma/client": "^6.14.0",
     "@sapphire/framework": "^5.3.6",
     "@sapphire/plugin-subcommands": "^7.0.1",
@@ -31,7 +31,7 @@
     "discord.js": "^14.21.0"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^1.2.12",
+    "@alextheman/eslint-plugin": "^1.6.1",
     "@types/common-tags": "^1.8.4",
     "dotenv": "^17.2.1",
     "eslint": "^9.33.0",
