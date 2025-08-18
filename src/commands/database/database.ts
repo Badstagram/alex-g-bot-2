@@ -2,8 +2,10 @@ import type { ApplicationCommandRegistry, Awaitable } from "@sapphire/framework"
 
 import { Subcommand } from "@sapphire/plugin-subcommands";
 
+import addGuildCommand from "src/commands/database/_add-guild";
 import addUserCommand from "src/commands/database/_add-user";
 import query from "src/commands/database/_query";
+import setErrorLogChannel from "src/commands/database/_set-error-log-channel";
 
 class DatabaseCommand extends Subcommand {
   constructor(context: Subcommand.LoaderContext, options: Subcommand.Options) {
@@ -18,6 +20,14 @@ class DatabaseCommand extends Subcommand {
         {
           name: "add-user",
           chatInputRun: addUserCommand,
+        },
+        {
+          name: "add-guild",
+          chatInputRun: addGuildCommand,
+        },
+        {
+          name: "set-error-log-channel",
+          chatInputRun: setErrorLogChannel,
         },
       ],
     });
@@ -47,6 +57,22 @@ class DatabaseCommand extends Subcommand {
             .setDescription("Add a user to the bot's database")
             .addUserOption((option) => {
               return option.setName("user").setDescription("The user to add").setRequired(true);
+            });
+        })
+        .addSubcommand((command) => {
+          return command
+            .setName("add-guild")
+            .setDescription("Add the current guild to the bot's database");
+        })
+        .addSubcommand((command) => {
+          return command
+            .setName("set-error-log-channel")
+            .setDescription("Set the channel to log bot errors in")
+            .addChannelOption((option) => {
+              return option
+                .setName("channel")
+                .setDescription("The channel to log errors in")
+                .setRequired(true);
             });
         });
     });
