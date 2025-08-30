@@ -10,7 +10,7 @@
     "format": "prettier --write --parser typescript 'src/**/*.ts' 'prisma/**/*.ts' && ESLINT_MODE=fix eslint --fix --quiet 'src/**/*.ts' 'prisma/**/*.ts'",
     "lint": "ESLINT_MODE=lint eslint 'src/**/*.ts' 'prisma/**/*.ts' && prettier --check --parser typescript 'src/**/*.ts' 'prisma/**/*.ts'",
     "prepare": "husky",
-    "update-dependencies": "npx npm-check-updates -u && npm install",
+    "update-dependencies": "bash -c 'npx npm-check-updates -u \"$@\" && npm install' --",
     "update-bot": "./update.sh",
     "pull-update-script": "git reset --hard && git pull origin main && chmod +x ./update.sh",
     "change-major": "npm version major -m \"Change version number to v%s\"",
