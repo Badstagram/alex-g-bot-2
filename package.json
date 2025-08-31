@@ -13,7 +13,7 @@
     "prepare": "husky",
     "update-dependencies": "bash -c 'npx npm-check-updates -u \"$@\" && npm install' --",
     "update-bot": "./update.sh",
-    "pull-update-script": "git reset --hard && git pull origin main && chmod +x ./update.sh",
+    "pull-update-script-changes": "git reset --hard && git pull origin main && chmod +x ./update.sh",
     "change-major": "npm version major -m \"Change version number to v%s\"",
     "change-minor": "npm version minor -m \"Change version number to v%s\"",
     "change-patch": "npm version patch -m \"Change version number to v%s\""
