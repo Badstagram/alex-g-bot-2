@@ -2,7 +2,7 @@ import type { User } from "discord.js";
 
 import database from "prisma/connection";
 
-async function addUserToDatabase(user: User) {
+export async function addUserToDatabase(user: User) {
   return await database.user.create({
     data: {
       userId: user.id,
@@ -12,5 +12,3 @@ async function addUserToDatabase(user: User) {
     },
   });
 }
-
-export default addUserToDatabase;
