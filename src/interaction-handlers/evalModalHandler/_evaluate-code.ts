@@ -5,6 +5,7 @@ export interface EvaluateCodeReturnType {
 
 function evaluateCode(code: string): EvaluateCodeReturnType {
   try {
+    // eslint-disable-next-line no-eval
     return { evaluatedCode: eval(code), success: true };
   } catch (error: unknown) {
     return { evaluatedCode: error, success: false };
