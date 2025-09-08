@@ -23,7 +23,7 @@ function formatEvalResponse(
       return builder.setContent("## Input");
     })
     .addTextDisplayComponents((builder) => {
-      return builder.setContent("```js\n" + code + "```");
+      return builder.setContent(`\`\`\`js\n${code}\`\`\``);
     })
     .addSeparatorComponents((builder) => {
       return builder.setSpacing(SeparatorSpacingSize.Small);
@@ -32,7 +32,7 @@ function formatEvalResponse(
       return builder.setContent("## Output");
     })
     .addTextDisplayComponents((builder) => {
-      return builder.setContent("```js\n" + JSON.stringify(output, null, lineSpacing) + "```");
+      return builder.setContent(`\`\`\`js\n${JSON.stringify(output, null, lineSpacing)}\`\`\``);
     })
     .addSeparatorComponents((builder) => {
       return builder.setSpacing(SeparatorSpacingSize.Small);
