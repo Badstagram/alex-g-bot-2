@@ -20,7 +20,7 @@ function formatQueryResponse(
       return builder.setContent("## Input");
     })
     .addTextDisplayComponents((builder) => {
-      return builder.setContent("```js\n" + queryString + "```");
+      return builder.setContent(`\`\`\`js\n${queryString}\`\`\``);
     })
     .addSeparatorComponents((builder) => {
       return builder.setSpacing(SeparatorSpacingSize.Small);
@@ -29,7 +29,7 @@ function formatQueryResponse(
       return builder.setContent("## Output");
     })
     .addTextDisplayComponents((builder) => {
-      return builder.setContent("```js\n" + JSON.stringify(queryResponse, null, 2) + "```");
+      return builder.setContent(`\`\`\`js\n${JSON.stringify(queryResponse, null, 2)}\`\`\``);
     })
     .setAccentColor(success ? [0, 255, 0] : [255, 0, 0]);
 }

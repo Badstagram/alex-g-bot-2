@@ -33,7 +33,7 @@ class EvalModalHandler extends InteractionHandler {
     );
 
     if (code.includes("process.env") && !showEnvironmentVariables) {
-      const attemptedToAccess = code.split(".")[2];
+      const [_, __, attemptedToAccess] = code.split(".");
 
       const container = formatEvalResponse(
         code,
