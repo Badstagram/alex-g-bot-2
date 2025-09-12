@@ -8,7 +8,7 @@ import query from "src/commands/database/_query";
 import setErrorLogChannel from "src/commands/database/_set-error-log-channel";
 
 class DatabaseCommand extends Subcommand {
-  constructor(context: Subcommand.LoaderContext, options: Subcommand.Options) {
+  public constructor(context: Subcommand.LoaderContext, options: Subcommand.Options) {
     super(context, {
       ...options,
       preconditions: ["OwnerOnly"],
