@@ -24,7 +24,7 @@
   "type": "module",
   "dependencies": {
     "@alextheman/utility": "^1.16.0",
-    "@prisma/client": "^6.15.0",
+    "@prisma/client": "^6.16.1",
     "@sapphire/framework": "^5.3.6",
     "@sapphire/plugin-subcommands": "^7.0.1",
     "@sapphire/type": "^2.6.0",
@@ -32,14 +32,14 @@
     "discord.js": "^14.22.1"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^1.13.8",
+    "@alextheman/eslint-plugin": "^1.14.1",
     "@types/common-tags": "^1.8.4",
     "dotenv": "^17.2.2",
     "eslint": "^9.35.0",
     "husky": "^9.1.7",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
-    "prisma": "^6.15.0",
+    "prisma": "^6.16.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   }
