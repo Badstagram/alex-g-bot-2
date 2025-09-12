@@ -6,7 +6,7 @@ import evalCommand from "src/commands/owner/_eval";
 import ownerTestCommand from "src/commands/owner/_test";
 
 class OwnerCommand extends Subcommand {
-  constructor(context: Subcommand.LoaderContext, options: Subcommand.Options) {
+  public constructor(context: Subcommand.LoaderContext, options: Subcommand.Options) {
     super(context, {
       ...options,
       preconditions: ["OwnerOnly"],
@@ -24,7 +24,7 @@ class OwnerCommand extends Subcommand {
     });
   }
 
-  registerApplicationCommands(registry: ApplicationCommandRegistry): Awaitable<void> {
+  public registerApplicationCommands(registry: ApplicationCommandRegistry): Awaitable<void> {
     registry.registerChatInputCommand((builder) => {
       return builder
         .setName("owner")

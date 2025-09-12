@@ -5,7 +5,7 @@ import { Subcommand } from "@sapphire/plugin-subcommands";
 import gitHubLinks from "src/commands/packages/_github-links";
 
 class PackagesCommand extends Subcommand {
-  constructor(context: Subcommand.LoaderContext, options: Subcommand.Options) {
+  public constructor(context: Subcommand.LoaderContext, options: Subcommand.Options) {
     super(context, {
       ...options,
       subcommands: [
