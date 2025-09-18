@@ -23,7 +23,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@alextheman/utility": "^1.16.0",
+    "@alextheman/utility": "^1.16.1",
     "@prisma/client": "^6.16.1",
     "@sapphire/framework": "^5.3.6",
     "@sapphire/plugin-subcommands": "^7.0.1",
