@@ -9,19 +9,34 @@ datasource db {
 }
 
 model User {
-  userId      String    @id @map("user_id")
-  username    String    @db.VarChar(100)
-  globalName  String    @map("global_name") @db.VarChar(100)
-  botUser     Boolean   @map("bot_user")
-  dateOfBirth DateTime? @map("date_of_birth")
+  userId       String        @id @map("user_id")
+  username     String        @db.VarChar(100)
+  globalName   String        @map("global_name") @db.VarChar(100)
+  botUser      Boolean       @map("bot_user")
+  dateOfBirth  DateTime?     @map("date_of_birth")
+  bankAccounts BankAccount[]
 
   @@map("users")
 }
 
 model Guild {
-  guildId           String  @id @map("guild_id")
+  guildId           String        @id @map("guild_id")
   name              String
-  errorLogChannelId String? @map("error_log_channel_id")
+  errorLogChannelId String?       @map("error_log_channel_id")
+  currencySymbol    String        @default("£") @map("currency_symbol")
+  bankAccounts      BankAccount[]
 
   @@map("guilds")
+}
+
+model BankAccount {
+  id           String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId       String @map("user_id")
+  user         User   @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  guildId      String @map("guild_id")
+  guild        Guild  @relation(fields: [guildId], references: [guildId], onDelete: Cascade)
+  moneyCurrent Float  @default(0) @map("money_current")
+  moneySavings Float  @default(0) @map("money_savings")
+
+  @@map("bank_accounts")
 }
