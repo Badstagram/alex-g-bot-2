@@ -9,7 +9,14 @@ async function createAccount(interaction: ChatInputCommandInteraction) {
   if (!interaction.guild) {
     return await interaction.reply("This command can only be run in a valid guild.");
   }
-  const createdBankAccount = await createBankAccount(interaction.user.id, interaction.guild.id);
+  let createdBankAccount: Awaited<ReturnType<typeof createBankAccount>>;
+  try {
+    createdBankAccount = await createBankAccount(interaction.user.id, interaction.guild.id);
+  } catch (error: any) {
+    if (error?.code === "P2002") {
+      return await interaction.reply("Bank account already created.");
+    }
+  }
   const currencySymbol = await getCurrencySymbol(interaction.guild.id, interaction);
 
   const container = new ContainerBuilder()
