@@ -4,6 +4,7 @@ import { Subcommand } from "@sapphire/plugin-subcommands";
 
 import balance from "src/commands/bank/_balance";
 import createAccount from "src/commands/bank/_create-account";
+import transfer from "src/commands/bank/_transfer";
 
 class BankCommand extends Subcommand {
   public constructor(context: Subcommand.LoaderContext, options: Subcommand.Options) {
@@ -17,6 +18,10 @@ class BankCommand extends Subcommand {
         {
           name: "create-account",
           chatInputRun: createAccount,
+        },
+        {
+          name: "transfer",
+          chatInputRun: transfer,
         },
       ],
     });
@@ -36,6 +41,23 @@ class BankCommand extends Subcommand {
           return command
             .setName("create-account")
             .setDescription("Create a bank account in the current server");
+        })
+        .addSubcommand((command) => {
+          return command
+            .setName("transfer")
+            .setDescription("Transfer money to another user")
+            .addUserOption((option) => {
+              return option
+                .setName("payee")
+                .setDescription("The person to transfer money too")
+                .setRequired(true);
+            })
+            .addNumberOption((option) => {
+              return option
+                .setName("amount")
+                .setDescription("The amount of money to transfer")
+                .setRequired(true);
+            });
         });
     });
   }

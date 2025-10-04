@@ -43,3 +43,18 @@ export async function createBankAccount(userId: string, guildId: string) {
     },
   });
 }
+
+interface BankAccountData {
+  moneyCurrent?: number;
+  moneySavings?: number;
+}
+
+export async function updateBankAccount(userId: string, guildId: string, data: BankAccountData) {
+  return await database.bankAccount.updateMany({
+    where: {
+      userId,
+      guildId,
+    },
+    data,
+  });
+}
