@@ -35,7 +35,7 @@ model BankAccount {
   user         User   @relation(fields: [userId], references: [userId], onDelete: Cascade)
   guildId      String @map("guild_id")
   guild        Guild  @relation(fields: [guildId], references: [guildId], onDelete: Cascade)
-  moneyCurrent Float  @default(0) @map("money_current")
+  moneyCurrent Float  @default(100) @map("money_current")
   moneySavings Float  @default(0) @map("money_savings")
 
   @@map("bank_accounts")
