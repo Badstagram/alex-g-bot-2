@@ -1,10 +1,4 @@
-import type {
-  Guild,
-  InteractionReplyOptions,
-  InteractionResponse,
-  MessagePayload,
-  User,
-} from "discord.js";
+import type { ChatInputCommandInteraction, Guild, InteractionResponse, User } from "discord.js";
 
 import z from "zod";
 
@@ -30,19 +24,12 @@ async function makePayment(
   { from: payer, to: payee }: PeopleInvolvedInPayment,
   guild: Guild,
   transferAmount: number,
-  reply?: (
-    options:
-      | string
-      | MessagePayload
-      | (InteractionReplyOptions & {
-          withResponse: true;
-        }),
-  ) => Promise<InteractionResponse<boolean>>,
+  interaction: ChatInputCommandInteraction,
 ): Promise<InteractionResponse<boolean> | PaymentData> {
   const payerBankAccount = await getBankAccount(payer.id, guild.id);
   if (!payerBankAccount) {
-    if (reply) {
-      return await reply(
+    if (interaction) {
+      return await interaction.reply(
         "You do not have an active bank account in this guild yet. Please run `/bank create-account` to create an account.",
       );
     }
@@ -51,8 +38,8 @@ async function makePayment(
 
   const payeeBankAccount = await getBankAccount(payee.id, guild.id);
   if (!payeeBankAccount) {
-    if (reply) {
-      return await reply(
+    if (interaction) {
+      return await interaction.reply(
         "The person you are trying to pay does not have an active bank account in this guild yet.",
       );
     }
@@ -61,8 +48,8 @@ async function makePayment(
 
   const newPayerCurrent = payerBankAccount.moneyCurrent - transferAmount;
   if (newPayerCurrent < 0) {
-    if (reply) {
-      return await reply("You do not have enough money to make this payment.");
+    if (interaction) {
+      return await interaction.reply("You do not have enough money to make this payment.");
     }
     throw new Error("INSUFFICIENT_MONEY");
   }

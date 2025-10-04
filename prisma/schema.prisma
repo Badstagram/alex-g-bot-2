@@ -30,7 +30,6 @@ model Guild {
 }
 
 model BankAccount {
-  id           String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   userId       String @map("user_id")
   user         User   @relation(fields: [userId], references: [userId], onDelete: Cascade)
   guildId      String @map("guild_id")
@@ -38,5 +37,6 @@ model BankAccount {
   moneyCurrent Float  @default(100) @map("money_current")
   moneySavings Float  @default(0) @map("money_savings")
 
+  @@id([userId, guildId])
   @@map("bank_accounts")
 }
