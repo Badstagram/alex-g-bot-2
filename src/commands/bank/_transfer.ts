@@ -21,10 +21,7 @@ async function transfer(interaction: ChatInputCommandInteraction) {
       { from: interaction.user, to: payee },
       interaction.guild,
       transferAmount,
-      /* I think interaction.reply may be internally using the deprecated fetchReply, which causes this warning to appear even though I'm not 
-      directly using it. As such, disabling the no-deprecated rule is ok here. */
-      // eslint-disable-next-line @typescript-eslint/no-deprecated
-      interaction.reply,
+      interaction,
     ),
   );
   const currencySymbol = await getCurrencySymbol(interaction.guild.id, interaction);

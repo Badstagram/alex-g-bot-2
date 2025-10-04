@@ -1,10 +1,12 @@
 import database from "prisma/connection";
 
 export async function getBankAccount(userId: string, guildId: string) {
-  return await database.bankAccount.findFirst({
+  return await database.bankAccount.findUnique({
     where: {
-      userId,
-      guildId,
+      userId_guildId: {
+        userId,
+        guildId,
+      },
     },
     include: {
       user: {
@@ -50,10 +52,12 @@ interface BankAccountData {
 }
 
 export async function updateBankAccount(userId: string, guildId: string, data: BankAccountData) {
-  return await database.bankAccount.updateMany({
+  return await database.bankAccount.update({
     where: {
-      userId,
-      guildId,
+      userId_guildId: {
+        userId,
+        guildId,
+      },
     },
     data,
   });
