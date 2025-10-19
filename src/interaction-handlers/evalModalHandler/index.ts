@@ -1,5 +1,6 @@
 import type { ModalSubmitInteraction } from "discord.js";
 
+import { parseIntStrict, stringToBoolean } from "@alextheman/utility";
 import { InteractionHandler, InteractionHandlerTypes } from "@sapphire/framework";
 import { MessageFlags } from "discord.js";
 
@@ -26,11 +27,12 @@ class EvalModalHandler extends InteractionHandler {
 
   public override async run(interaction: ModalSubmitInteraction) {
     const code = interaction.fields.getTextInputValue("code");
-    const lineSpacing = interaction.fields.getTextInputValue("lineSpacing");
-    const parsedLineSpacing = lineSpacing !== "" ? parseInt(lineSpacing) : 2;
-    const showEnvironmentVariables = interaction.fields.getTextInputValue(
+    const [lineSpacing] = interaction.fields.getStringSelectValues("lineSpacing");
+    const parsedLineSpacing = lineSpacing !== "" ? parseIntStrict(lineSpacing) : 2;
+    const [showEnvironmentVariablesRaw] = interaction.fields.getStringSelectValues(
       "showEnvironmentVariables",
     );
+    const showEnvironmentVariables = stringToBoolean(showEnvironmentVariablesRaw);
 
     if (code.includes("process.env") && !showEnvironmentVariables) {
       const [_, __, attemptedToAccess] = code.split(".");
