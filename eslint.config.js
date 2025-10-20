@@ -1,3 +1,3 @@
-import alexPlugin from "@alextheman/eslint-plugin";
+import plugin from "@alextheman/eslint-plugin";
 
-export default alexPlugin.configs.alexTypeScriptBase;
+export default plugin.configs["combined/typescript"];

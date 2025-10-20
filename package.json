@@ -45,7 +45,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^1.14.2",
+    "@alextheman/eslint-plugin": "^2.2.0",
     "@types/common-tags": "^1.8.4",
     "dotenv": "^17.2.3",
     "eslint": "^9.38.0",
