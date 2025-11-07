@@ -35,8 +35,8 @@
     "update-dependencies": "bash -c 'npx npm-check-updates -u \"$@\" && npm install' --"
   },
   "dependencies": {
-    "@alextheman/utility": "^2.5.0",
-    "@prisma/client": "^6.18.0",
+    "@alextheman/utility": "^2.12.1",
+    "@prisma/client": "^6.19.0",
     "@sapphire/framework": "^5.3.7",
     "@sapphire/plugin-subcommands": "^7.0.1",
     "@sapphire/type": "^2.6.0",
@@ -45,14 +45,14 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^2.4.1",
+    "@alextheman/eslint-plugin": "^2.5.0",
     "@types/common-tags": "^1.8.4",
     "dotenv": "^17.2.3",
-    "eslint": "^9.39.0",
+    "eslint": "^9.39.1",
     "husky": "^9.1.7",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
-    "prisma": "^6.18.0",
+    "prisma": "^6.19.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
