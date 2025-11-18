@@ -28,7 +28,7 @@ class PingCommand extends Command {
     const restPing = pingMessage.createdTimestamp - interaction.createdTimestamp;
 
     const db1 = Date.now();
-    await database.$executeRawUnsafe("SELECT 1");
+    await database.$queryRaw`SELECT 1`;
     const db2 = Date.now();
 
     const dbPing = db2 - db1;
