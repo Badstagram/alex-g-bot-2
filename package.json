@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@alextheman/utility": "^2.19.0",
-    "@prisma/client": "^7.0.0",
+    "@prisma/client": "^6.19.0",
     "@sapphire/framework": "^5.4.0",
     "@sapphire/plugin-subcommands": "^7.0.1",
     "@sapphire/type": "^2.6.0",
@@ -52,7 +52,7 @@
     "husky": "^9.1.7",
     "nodemon": "^3.1.11",
     "prettier": "^3.6.2",
-    "prisma": "^7.0.0",
+    "prisma": "^6.19.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
