@@ -6,8 +6,7 @@ WORKDIR /opt/bot
 COPY package.json .
 COPY package-lock.json .
 
-RUN ["npm", "install"]
-RUN ["npm", "install", "-g", "tsx"]
+RUN ["pnpm", "install"]
 
 COPY tsconfig.json .
 COPY .env .
@@ -15,7 +14,7 @@ COPY src/ src/
 COPY prisma/ prisma/
 
 # Generate Prisma Client
-RUN ["npx", "prisma", "migrate", "deploy"]
-RUN ["npx", "prisma", "generate"]
+RUN ["pnpx", "prisma", "migrate", "deploy"]
+RUN ["pnpx", "prisma", "generate"]
 
-ENTRYPOINT ["npm", "run", "start"]
+ENTRYPOINT ["pnpm", "run", "start"]

@@ -7,20 +7,20 @@
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
-    "change-major": "npm version major -m \"Change version number to v%s\"",
-    "change-minor": "npm version minor -m \"Change version number to v%s\"",
-    "change-patch": "npm version patch -m \"Change version number to v%s\"",
+    "change-major": "pnpm version major -m \"Change version number to v%s\"",
+    "change-minor": "pnpm version minor -m \"Change version number to v%s\"",
+    "change-patch": "pnpm version patch -m \"Change version number to v%s\"",
     "dev": "nodemon src/index.ts",
-    "format": "npm run format-prettier && npm run format-eslint && npm run format-prisma",
+    "format": "pnpm run format-prettier && pnpm run format-eslint && pnpm run format-prisma",
     "format-eslint": "eslint --fix --suppress-all \"package.json\" \"src/**/*.ts\" \"prisma/**/*.ts\" && rm -f eslint-suppressions.json",
-    "format-prettier": "npm run format-prettier-typescript && npm run format-prettier-javascript",
+    "format-prettier": "pnpm run format-prettier-typescript && pnpm run format-prettier-javascript",
     "format-prettier-javascript": "prettier --write \"./**/*.js\"",
     "format-prettier-typescript": "prettier --write --parser typescript \"./**/*.ts\"",
     "format-prisma": "prisma format",
     "generate": "prisma generate",
-    "lint": "npm run lint-tsc && npm run lint-eslint && npm run lint-prettier && npm run lint-prisma",
+    "lint": "pnpm run lint-tsc && pnpm run lint-eslint && pnpm run lint-prettier && pnpm run lint-prisma",
     "lint-eslint": "eslint \"package.json\" \"src/**/*.ts\" \"prisma/**/*.ts\"",
-    "lint-prettier": "npm run lint-prettier-typescript && npm run lint-prettier-javascript",
+    "lint-prettier": "pnpm run lint-prettier-typescript && pnpm run lint-prettier-javascript",
     "lint-prettier-javascript": "prettier --check \"./**/*.js\"",
     "lint-prettier-typescript": "prettier --check --parser typescript \"./**/*.ts\"",
     "lint-prisma": "prisma format --check",
@@ -29,10 +29,9 @@
     "migrate-dev": "prisma migrate dev",
     "prepare": "husky",
     "pull-update-script-changes": "git reset --hard && git pull origin main && chmod +x ./update.sh",
-    "start": "npx tsx src/index.ts",
+    "start": "tsx src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update-bot": "./update.sh",
-    "update-dependencies": "bash -c 'npx npm-check-updates -u \"$@\" && npm install' --"
+    "update-bot": "./update.sh"
   },
   "dependencies": {
     "@alextheman/utility": "^2.19.0",
@@ -47,6 +46,7 @@
   "devDependencies": {
     "@alextheman/eslint-plugin": "^3.2.1",
     "@types/common-tags": "^1.8.4",
+    "@types/node": "^24.10.1",
     "dotenv": "^17.2.3",
     "eslint": "^9.39.1",
     "husky": "^9.1.7",
@@ -54,6 +54,14 @@
     "prettier": "^3.6.2",
     "prisma": "^6.19.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a",
+  "pnpm": {
+    "overrides": {
+      "prisma": "<=6.19.0",
+      "@prisma/client": "<=6.19.0"
+    }
   }
 }
