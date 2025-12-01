@@ -16,7 +16,7 @@ COPY src/ src/
 COPY prisma/ prisma/
 
 # Generate Prisma Client
-RUN ["pnpx", "prisma", "migrate", "deploy"]
-RUN ["pnpx", "prisma", "generate"]
+RUN ["pnpm", "run", "migrate-deploy"]
+RUN ["pnpm", "run", "generate"]
 
 ENTRYPOINT ["pnpm", "run", "start"]
