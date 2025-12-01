@@ -6,6 +6,8 @@ WORKDIR /opt/bot
 COPY package.json .
 COPY pnpm-lock.yaml .
 
+RUN ["corepack", "enable"]
+RUN ["corepack", "prepare", "pnpm@latest", "--activate"]
 RUN ["pnpm", "install"]
 
 COPY tsconfig.json .
