@@ -2,9 +2,9 @@ FROM node:24.5.0
 
 WORKDIR /opt/bot
 
-# Copy package.json and package-lock.json
+# Copy package.json and pnpm-lock.yaml
 COPY package.json .
-COPY package-lock.json .
+COPY pnpm-lock.yaml .
 
 RUN ["pnpm", "install"]
 
