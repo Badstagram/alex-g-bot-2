@@ -13,7 +13,7 @@ importers:
   .:
     dependencies:
       '@alextheman/utility':
-        specifier: ^2.19.0
+        specifier: ^2.21.0
         version: 2.21.0
       '@prisma/client':
         specifier: ^6.19.0
@@ -34,7 +34,7 @@ importers:
         specifier: ^14.25.1
         version: 14.25.1
       zod:
-        specifier: ^4.1.12
+        specifier: ^4.1.13
         version: 4.1.13
     devDependencies:
       '@alextheman/eslint-plugin':
@@ -59,7 +59,7 @@ importers:
         specifier: ^3.1.11
         version: 3.1.11
       prettier:
-        specifier: ^3.6.2
+        specifier: ^3.7.3
         version: 3.7.3
       prisma:
         specifier: ^6.19.0
